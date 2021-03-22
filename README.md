@@ -27,6 +27,9 @@ npm install -g yarn
 yarn
 # Run the app
 npm run serve
+
+# If you want to test certain functions, import them in /src/static/test.js and run
+npm run test:data
 ```
 
 ## Trivia
