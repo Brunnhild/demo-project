@@ -130,6 +130,10 @@ export const progress_5_key = [
   '害怕的'
 ]
 
+const convertPhone = phone => {
+  if (phone.length === 11) return phone.substr(0, 3) + '****' + phone.substr(7, 4)
+}
+
 const input = path.join(__dirname, './data_1.csv')
 const records = parse(fs.readFileSync(input, {
   encoding: 'utf8'
@@ -149,7 +153,7 @@ export const getUserList = () => {
     const avatarList = []
     for (const j of avatar_key) if (i[j] !== '(跳过)') avatarList.push(...i[j].split(', '))
     userList.push({
-      phone: i['您的手机号码（请填写常用号码，便于后续联系）'],
+      phone: convertPhone(i['您的手机号码（请填写常用号码，便于后续联系）']),
       avatar: avatarList[0]
     })
   }

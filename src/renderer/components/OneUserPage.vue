@@ -1,6 +1,5 @@
 <template>
   <div class="page-body">
-    <div class="name">王小虎</div>
     <el-table
         :data="tableData"
         border

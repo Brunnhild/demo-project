@@ -8,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: require('@/components/ChartPage').default
+      component: require('@/components/HomePage').default
     },
     {
       path: '/oneUser',
@@ -19,6 +19,11 @@ export default new Router({
       path: '/users',
       name: 'users',
       component: require('@/components/UserListPage').default
+    },
+    {
+      path: '/demo',
+      name: 'demo',
+      component: require('@/components/ChartPage').default
     },
     {
       path: '*',

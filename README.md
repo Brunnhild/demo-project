@@ -42,6 +42,38 @@ html
   font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu,serif
 ```
 
+- Remove images in el-uploader
+
+```vue
+<template>
+  <el-upload
+          ref="uploader"
+          action="#"
+          list-type="picture-card"
+          :auto-upload="false">
+    <i slot="default" class="el-icon-plus"></i>
+    <div slot="file" slot-scope="{file}">
+      <img class="el-upload-list__item-thumbnail" :src="file.url" alt=""/>
+      <span class="el-upload-list__item-actions">
+        <span class="el-upload-list__item-delete" @click="handleRemove(file)">
+          <i class="el-icon-delete"></i>
+        </span>
+      </span>
+    </div>
+  </el-upload>
+</template>
+
+<script>
+handleRemove(file) {
+  const fileList = this.$refs.uploader.uploadFiles
+  const index = fileList.findIndex( fileItem => {
+    return fileItem.uid === file.uid
+  })
+  fileList.splice(index, 1)
+}
+</script>
+```
+
 ## Bugs & Fix
 - &lt;el-table&gt; doesn't work
 ```js
@@ -116,3 +148,7 @@ new HtmlWebpackPlugin({
   nodeModules: false
 })
 ```
+
+- @click not working with custom component
+
+Event click was first passed to the child component. If it's not captured inside, it's gone. Register handler inside or use @click.native
