@@ -6,7 +6,7 @@ This project was generated with [electron-vue](https://github.com/SimulatedGREG/
 
 ## Setup
 
-With vue-cli:
+Create a new electron-vue project with vue-cli:
 
 ```bash
 vue init simulatedgreg/electron-vue my-project
@@ -14,6 +14,19 @@ vue init simulatedgreg/electron-vue my-project
 cd my-project
 yarn
 yarn run dev
+```
+
+## To Use
+
+```shell
+# Make sure you have nodejs and npm in your computer
+cd demo-project
+# Install yarn globally
+npm install -g yarn
+# Install dependencies of the project
+yarn
+# Run the app
+npm run serve
 ```
 
 ## Trivia

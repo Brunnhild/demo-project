@@ -134,6 +134,11 @@ const convertPhone = phone => {
   if (phone.length === 11) return phone.substr(0, 3) + '****' + phone.substr(7, 4)
 }
 
+// todo: Replace all urls of avatars to file locations for these urls cannot be accessed unless you login
+const convertUrl = record => {
+  return record
+}
+
 const input = path.join(__dirname, './data_1.csv')
 const records = parse(fs.readFileSync(input, {
   encoding: 'utf8'
@@ -142,9 +147,8 @@ const records = parse(fs.readFileSync(input, {
   skip_empty_lines: true
 })
 
-// todo: To replace the all url of avatars to the file location
 export const getOneUser = () => {
-  return records[2]
+  return convertUrl(records[2])
 }
 
 export const getUserList = () => {
